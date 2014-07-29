@@ -40,6 +40,8 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+gem 'pg', group: :production
+gem 'rails_12factor', group: :production
 
 gem 'refinerycms', github: 'refinery/refinerycms', branch: 'master'
 gem 'refinerycms-i18n', github: 'refinery/refinerycms-i18n', branch: 'master'
