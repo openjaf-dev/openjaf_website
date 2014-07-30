@@ -18,6 +18,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 gem 'binding_of_caller'
 gem 'better_errors'
+gem 'less-rails'
 
 # gem 'bcrypt', '~> 3.1.7'
 # gem 'unicorn'
