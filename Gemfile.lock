@@ -337,6 +337,7 @@ DEPENDENCIES
   refinerycms!
   refinerycms-acts-as-indexed!
   refinerycms-i18n!
+  refinerycms-pages
   refinerycms-wymeditor (~> 1.0, >= 1.0.0)
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)

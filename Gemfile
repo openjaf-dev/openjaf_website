@@ -34,6 +34,7 @@ gem 'friendly_id', github: 'norman/friendly_id', branch: 'master'
 gem 'friendly_id-globalize', github: 'norman/friendly_id-globalize', branch: 'master'
 gem 'refinerycms-acts-as-indexed', github: 'refinery/refinerycms-acts-as-indexed'
 gem 'refinerycms-wymeditor', ['~> 1.0', '>= 1.0.0']
+gem 'refinerycms-pages'
 
 gem 'quiet_assets'
 gem 'seo_meta', github: 'parndt/seo_meta', branch: 'master'
