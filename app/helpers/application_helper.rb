@@ -10,7 +10,7 @@ module ApplicationHelper
 
   def menu_link(item)
     text  = item.slug.titleize
-    link  = item.url
+    link  = url_for(item.url)
     css   = 'muted' if item.draft?
     final = link_to(text, link, :class => css)
     final
