@@ -12,10 +12,10 @@ gem 'twitter-bootstrap-rails'
 gem 'therubyracer',  platforms: :ruby
 
 gem 'jquery-rails'
-gem 'turbolinks'
+#gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
-gem 'spring',        group: :development
+#gem 'spring',        group: :development
 gem 'binding_of_caller'
 gem 'better_errors'
 gem 'less-rails'
@@ -34,6 +34,7 @@ gem 'friendly_id', github: 'norman/friendly_id', branch: 'master'
 gem 'friendly_id-globalize', github: 'norman/friendly_id-globalize', branch: 'master'
 gem 'refinerycms-acts-as-indexed', github: 'refinery/refinerycms-acts-as-indexed'
 gem 'refinerycms-wymeditor', ['~> 1.0', '>= 1.0.0']
+gem 'refinerycms-pages'
 
 gem 'quiet_assets'
 gem 'seo_meta', github: 'parndt/seo_meta', branch: 'master'
