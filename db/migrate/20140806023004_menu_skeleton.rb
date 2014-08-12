@@ -2,8 +2,9 @@ class MenuSkeleton < ActiveRecord::Migration
 
   def list
     [
+      ['', 'Home'],
       ['solutions', 'Solutions'],
-      ['solutions/rails', 'Website'], # Web Development in General (ruby on rails)
+      ['solutions/rails', 'Website Development'], # Web Development in General (ruby on rails)
       ['solutions/spree', 'Online Shop'], # Generic Store (spree)
       ['solutions/openerp', 'Enterprise Management'], # (openerp)
       ['solutions/cenit', 'Ecommerce Integration Solution'], # (cenit)
@@ -12,7 +13,7 @@ class MenuSkeleton < ActiveRecord::Migration
       ['solutions/vehicle', 'Vehicle Maintenance'], # ???????????????????
       ['solutions/pos', 'Point of Sale'], # ????????????????
       ['solutions/design', 'Web Design'], # hacemos cualquier tipo de diseño (competencias o como se llame)
-      ['solutions/data', 'Data Loading/Migration'], # Carga de Datos con ... (se me olvido el nombre)
+      ['solutions/data', 'Data Loading - Migration'], # Carga de Datos con ... (se me olvido el nombre)
 
       ['portfolio', 'Portfolio'],
       ['portfolio/rubygems', 'Ruby Gems'], # all the gems
@@ -46,8 +47,22 @@ class MenuSkeleton < ActiveRecord::Migration
   end
 
   def up
-    Refinery::Page.destroy_all
-    list.each do |path, name|
+    Refinery::Page.delete_all
+    list.each do |slug, name|
+      path = "/" + slug
+      parts = slug.split('/')
+      parent_parts = parts[0..-2]
+      parent_slug = parent_parts.join('/')
+      parent = parent_parts.empty? ? nil : Refinery::Page.find_by_slug(parent_slug)
+      page = Refinery::Page.new
+      page.parent = parent
+      page.slug = slug
+      page.show_in_menu = path != '/'
+      page.draft = false
+      page.title = name
+      page.link_url = path
+      page.save
+      say path
     end
   end
 
