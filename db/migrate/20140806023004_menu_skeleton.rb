@@ -50,18 +50,31 @@ class MenuSkeleton < ActiveRecord::Migration
     Refinery::Page.delete_all
     list.each do |slug, name|
       path = "/" + slug
+      is_home = (path == '/')
       parts = slug.split('/')
       parent_parts = parts[0..-2]
       parent_slug = parent_parts.join('/')
       parent = parent_parts.empty? ? nil : Refinery::Page.find_by_slug(parent_slug)
+
       page = Refinery::Page.new
       page.parent = parent
       page.slug = slug
-      page.show_in_menu = path != '/'
+      page.show_in_menu = (not is_home)
       page.draft = false
       page.title = name
       page.link_url = path
+      page.deletable = true
+      page.view_template = "show"
       page.save
+
+      ['TopPart', 'BottomPart', 'LeftSideBar', "RightSideBar", "Body"].each do |part_name|
+        part = Refinery::PagePart.new
+        part.title = part_name
+        part.body = ""
+        part.refinery_page_id = page.id
+        part.save
+      end
+
       say path
     end
   end
